@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:mask="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#258BE9"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".Login">
+
+    <ImageView
+        android:id="@+id/image_logo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="48dp"
+        android:src="@drawable/logo_branco" />
+
+    <EditText
+        android:id="@+id/edit_text_cpf"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="35dp"
+        android:layout_marginLeft="35dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="282dp"
+        android:maxLength="14"
+        android:hint="CPF"
+        android:inputType="date"
+        android:shadowColor="#FFFFFF"
+        android:textColor="#FFFFFF"
+        android:textColorHighlight="#FFFFFF"
+        android:textColorHint="#FFFFFF"
+        android:textColorLink="#FFFFFF"
+        android:backgroundTint="@android:color/white"/>
+
+    <EditText
+        android:id="@+id/edit_text_senha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="35dp"
+        android:layout_marginLeft="35dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="213dp"
+        android:hint="Senha"
+        android:inputType="textPassword"
+        android:shadowColor="#FFFFFF"
+        android:textColor="#FFFFFF"
+        android:textColorHighlight="#FFFFFF"
+        android:textColorHint="#FFFFFF"
+        android:textColorLink="#FFFFFF"
+        android:backgroundTint="@android:color/white"/>
+
+    <Button
+        android:id="@+id/button_entrar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="142dp"
+        android:shadowColor="#DA2424"
+        android:text="Entrar"
+        android:textColor="#258BE9"
+        android:textColorHint="#FFEB3B"
+        android:layout_marginRight="95dp"
+        android:layout_marginLeft="95dp"
+        android:background="@drawable/round_button"
+        />
+
+    <Button
+        android:id="@+id/button_cadastro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="95dp"
+        android:layout_marginRight="95dp"
+        android:layout_marginBottom="81dp"
+        android:background="@drawable/round_button"
+        android:text="Cadastrar-se"
+        android:textColor="#258BE9" />
+
+    <TextView
+        android:id="@+id/esqueceu_senha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="48dp"
+        android:text="Esqueceu a senha?"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/clique_aqui"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="32dp"
+        android:gravity="center"
+        android:text="clique aqui"
+        android:textColor="#FFFFFF" />
+
+</RelativeLayout>

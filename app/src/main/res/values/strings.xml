@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">PrjTCC</string>
+    <string name="definir">DEFINIR ALARME</string>
+    <string name="alarme">Ver Alarmes</string>
+    <string name="estoque">Ver Remédios</string>
+    <string name="some_value"></string>
+    <string name="user"></string>
+    <string name="cpf"></string>
+    <string name="tel"></string>
+    <string name="email"></string>
+    <string name="tamanho"></string>
+    <string name="navigation_open">Abrir a barra de navegação</string>
+    <string name="navigation_close">Fechar a barra de navegação</string>
+    <string name="bemvindo">Bem-Vindo ao MediCare</string>
+
+</resources>
