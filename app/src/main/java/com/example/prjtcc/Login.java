@@ -50,6 +50,7 @@ public class Login extends AppCompatActivity {
         cpf = findViewById(R.id.edit_text_cpf);
         senha = findViewById(R.id.edit_text_senha);
 
+
         cpf.addTextChangedListener(buildCpf());
 
         TextView esqueceu_senha = findViewById(R.id.esqueceu_senha);
