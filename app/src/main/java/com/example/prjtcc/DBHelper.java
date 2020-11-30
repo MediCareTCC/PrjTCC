@@ -1,16 +1,17 @@
 package com.example.prjtcc;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.example.prjtcc.EditContract.*;
+import com.example.prjtcc.Contract.*;
 
-public class EditDBHelper extends SQLiteOpenHelper {
+public class DBHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "edit.db";
     public static final int DATABASE_VERSION = 1;
 
-    public EditDBHelper(Context context) {
+    public DBHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
@@ -35,6 +36,16 @@ public class EditDBHelper extends SQLiteOpenHelper {
 
         db.execSQL(SQL_CREATE_EDITLIST_TABLE);
     }
+
+    public Boolean checkemail(String email) {
+        SQLiteDatabase MyDB = this.getWritableDatabase();
+        Cursor cursor = MyDB.rawQuery("Select * from editList where email = ?", new String[]{email});
+        if (cursor.getCount() > 0)
+            return true;
+        else
+            return false;
+    }
+
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {

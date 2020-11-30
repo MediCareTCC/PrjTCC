@@ -7,14 +7,16 @@
         android:name=".Edit"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        tools:replace="android:label"
         android:label="MediCare"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".Login"></activity>
-        <activity android:name=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
+        android:theme="@style/AppTheme"
+        tools:replace="android:label">
+        <activity android:name=".ResetActivity"></activity>
+        <activity android:name=".Login" />
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,8 +24,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Cadastro"></activity>
-        <activity android:name=".EsqueceuSenha"></activity>
+        <activity android:name=".Cadastro" />
+        <activity android:name=".EsqueceuSenha" />
 
         <meta-data
             android:name="com.google.android.actions"

@@ -10,12 +10,12 @@ import android.widget.EditText;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class EditAdapter extends RecyclerView.Adapter<EditAdapter.EditViewHolder> {
+public class Adapter extends RecyclerView.Adapter<Adapter.EditViewHolder> {
 
     private Context mContext;
     private Cursor mCursor;
 
-    public EditAdapter(Context context, Cursor cursor){
+    public Adapter(Context context, Cursor cursor){
         mContext = context;
         mCursor = cursor;
     }
@@ -50,11 +50,11 @@ public class EditAdapter extends RecyclerView.Adapter<EditAdapter.EditViewHolder
             return;
         }
 
-        String name = mCursor.getString(mCursor.getColumnIndex(EditContract.EditEntry.COLUMN_NAME));
-        String cpf = mCursor.getString(mCursor.getColumnIndex(EditContract.EditEntry.COLUMN_CPF));
-        String email = mCursor.getString(mCursor.getColumnIndex(EditContract.EditEntry.COLUMN_EMAIL));
-        String size = mCursor.getString(mCursor.getColumnIndex(EditContract.EditEntry.COLUMN_SIZE));
-        String phone = mCursor.getString(mCursor.getColumnIndex(EditContract.EditEntry.COLUMN_PHONE));
+        String name = mCursor.getString(mCursor.getColumnIndex(Contract.EditEntry.COLUMN_NAME));
+        String cpf = mCursor.getString(mCursor.getColumnIndex(Contract.EditEntry.COLUMN_CPF));
+        String email = mCursor.getString(mCursor.getColumnIndex(Contract.EditEntry.COLUMN_EMAIL));
+        String size = mCursor.getString(mCursor.getColumnIndex(Contract.EditEntry.COLUMN_SIZE));
+        String phone = mCursor.getString(mCursor.getColumnIndex(Contract.EditEntry.COLUMN_PHONE));
 
         holder.nameText.setText(name);
         holder.cpfText.setText(cpf);

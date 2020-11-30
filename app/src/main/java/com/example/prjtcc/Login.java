@@ -27,30 +27,27 @@ import static com.example.prjtcc.MaskEditText.MaskWatcher.buildCpf;
 public class Login extends AppCompatActivity {
 
     //private Cursor cursor;
-    private Cursor cursorLogin;
-    private SQLiteDatabase dataBase;
+   // private Cursor cursorLogin;
+    //private SQLiteDatabase dataBase;
     private EditText cpf;
     private EditText senha;
     private boolean entrar = false;
-    private Toast erro;
+    private Toast toastConfirm;
+    //private Toast erro;
 
 
-    public Cursor cursor() {
-        MediCareDBHelper dbHelper = new MediCareDBHelper(this);
-        SQLiteDatabase db = dbHelper.getReadableDatabase();
-        cursorLogin = db.rawQuery("select * from usuario where cpf = ? and senha = ?", new String[]{cpf.getText().toString(), senha.getText().toString()});
-        return cursorLogin;
-    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         Button button_entrar = findViewById(R.id.button_entrar);
         Button button_cadastro = findViewById(R.id.button_cadastro);
+
+
+
         cpf = findViewById(R.id.edit_text_cpf);
         senha = findViewById(R.id.edit_text_senha);
-
-
         cpf.addTextChangedListener(buildCpf());
 
         TextView esqueceu_senha = findViewById(R.id.esqueceu_senha);
@@ -85,32 +82,43 @@ public class Login extends AppCompatActivity {
             }
         });
 
+        final MediCareDBHelper DB = new MediCareDBHelper(this);
 
         button_entrar.setOnClickListener(new View.OnClickListener() {
 
+
             @Override
             public void onClick(View view) {
+
                 if(cpf.getText().toString().equals("") || senha.getText().toString().equals("")){
-                    erro = Toast.makeText(getBaseContext(), "Insira o CPF e/ou a senha", Toast.LENGTH_SHORT);
-                    erro.show();
-                    return;
-                }
-                if(cpf.getText().toString().length() != 14){
-                    erro = Toast.makeText(getBaseContext(), "INSIRA UM CPF VÁLIDO", Toast.LENGTH_SHORT);
-                    erro.show();
-                    return;
-                }
-                cursorLogin = cursor();
-                if (cursorLogin.getCount() > 0) {
-                    startActivity(new Intent(Login.this, MainActivity.class));
-                    return;
-                }
-                else {
-                    erro = Toast.makeText(getBaseContext(), "CPF e/ou senha incorretos", Toast.LENGTH_SHORT);
-                    erro.show();
-                    return;
+
+                    toastConfirm = Toast.makeText(getBaseContext(), "Não deixe nenhum dos campos vazios", Toast.LENGTH_SHORT);
+                    toastConfirm.show();
+
+                } else if(cpf.getText().toString().length() != 14){
+
+                    toastConfirm = Toast.makeText(getBaseContext(), "Insira um cpf válido", Toast.LENGTH_SHORT);
+                    toastConfirm.show();
+
+                } else {
+
+                    Boolean checkuserpass = DB.checkusernamepassword(cpf.getText().toString(), senha.getText().toString());
+
+                    if(checkuserpass==true){
+
+                        toastConfirm = Toast.makeText(getBaseContext(), "Login efetuado com sucesso", Toast.LENGTH_SHORT);
+                        toastConfirm.show();
+                        Intent intent  = new Intent(getApplicationContext(), MainActivity.class);
+                        startActivity(intent);
+                    } else {
+                        toastConfirm = Toast.makeText(getBaseContext(), "cpf e/ou senha incorretos", Toast.LENGTH_SHORT);
+                        toastConfirm.show();
+                    }
+
+
                 }
             }
+
         });
 
     }

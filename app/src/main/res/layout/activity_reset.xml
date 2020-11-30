@@ -4,6 +4,13 @@
     android:layout_height="match_parent"
     android:background="#258BE9">
 
+    <TextView
+        android:id="@+id/textView_email_reset"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"/>
+
+
 
     <ImageButton
         android:id="@+id/voltar"
@@ -26,7 +33,7 @@
         android:src="@drawable/logo_branco" />
 
     <EditText
-        android:id="@+id/edit_text_esqueceu_senha"
+        android:id="@+id/edit_text_novaSenha"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -34,8 +41,26 @@
         android:layout_marginRight="35dp"
         android:layout_marginBottom="242dp"
         android:backgroundTint="@android:color/white"
-        android:hint="E-mail para mudar Senha"
-        android:inputType="text"
+        android:hint="Nova Senha"
+        android:inputType="textPassword
+"
+        android:shadowColor="#FFFFFF"
+        android:textColor="#FFFFFF"
+        android:textColorHighlight="#FFFFFF"
+        android:textColorHint="#FFFFFF"
+        android:textColorLink="#FFFFFF" />
+
+    <EditText
+        android:id="@+id/edit_text_repetirNovaSenha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="35dp"
+        android:layout_marginRight="35dp"
+        android:layout_marginBottom="166dp"
+        android:backgroundTint="@android:color/white"
+        android:hint="Repetir Nova Senha"
+        android:inputType="textPassword"
         android:shadowColor="#FFFFFF"
         android:textColor="#FFFFFF"
         android:textColorHighlight="#FFFFFF"
@@ -43,19 +68,18 @@
         android:textColorLink="#FFFFFF" />
 
     <Button
-        android:id="@+id/button_mudarSenha"
+        android:id="@+id/button_novaSenha"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="142dp"
-        android:shadowColor="#DA2424"
-        android:text="Mudar Senha"
-        android:textColor="#258BE9"
-        android:textColorHint="#FFEB3B"
-        android:layout_marginRight="95dp"
         android:layout_marginLeft="95dp"
+        android:layout_marginRight="95dp"
+        android:layout_marginBottom="91dp"
         android:background="@drawable/round_button"
-        />
+        android:shadowColor="#DA2424"
+        android:text="Nova Senha"
+        android:textColor="#258BE9"
+        android:textColorHint="#FFEB3B" />
 
 
 </RelativeLayout>

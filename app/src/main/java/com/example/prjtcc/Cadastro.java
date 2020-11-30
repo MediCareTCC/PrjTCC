@@ -114,7 +114,7 @@ public class Cadastro extends AppCompatActivity {
                 finish();
             }
         });
-   }
+    }
     private void addDB() {
         String nome = editTextNome.getText().toString();
         String senha = editTextSenha.getText().toString();
@@ -131,6 +131,7 @@ public class Cadastro extends AppCompatActivity {
         cv.put(MediCareContract.MediCareEntry.COLUMN_TELEFONE, phone);
 
         dataBase.insert(MediCareContract.MediCareEntry.TABLE_NAME, null, cv);
+
     }
     @Override
     public void onBackPressed(){

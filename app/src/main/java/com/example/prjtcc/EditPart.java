@@ -7,8 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import com.example.prjtcc.Login;
-import com.example.prjtcc.db.MediCareDBHelper;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,7 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class EditPart extends AppCompatActivity {
 
     private SQLiteDatabase mDatabase;
-    private EditAdapter mAdapter;
+    private Adapter mAdapter;
     private EditText mEditText1;
     private EditText mEditText2;
     private EditText mEditText3;
@@ -28,10 +26,10 @@ public class EditPart extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        EditDBHelper dbHelper = new EditDBHelper(this);
+        DBHelper dbHelper = new DBHelper(this);
         mDatabase = dbHelper.getWritableDatabase();
 
-        mAdapter = new EditAdapter(this, getAllItems());
+        mAdapter = new Adapter(this, getAllItems());
 
         mEditText1 = findViewById(R.id.txtUser);
         mEditText2 = findViewById(R.id.txtCPF);
@@ -60,25 +58,25 @@ public class EditPart extends AppCompatActivity {
         String phone = mEditText5.getText().toString();
 
         ContentValues cv = new ContentValues();
-        cv.put(EditContract.EditEntry.COLUMN_NAME, name);
-        cv.put(EditContract.EditEntry.COLUMN_CPF, cpf);
-        cv.put(EditContract.EditEntry.COLUMN_EMAIL, email);
-        cv.put(EditContract.EditEntry.COLUMN_SIZE, size);
-        cv.put(EditContract.EditEntry.COLUMN_PHONE, phone);
+        cv.put(Contract.EditEntry.COLUMN_NAME, name);
+        cv.put(Contract.EditEntry.COLUMN_CPF, cpf);
+        cv.put(Contract.EditEntry.COLUMN_EMAIL, email);
+        cv.put(Contract.EditEntry.COLUMN_SIZE, size);
+        cv.put(Contract.EditEntry.COLUMN_PHONE, phone);
 
-        mDatabase.insert(EditContract.EditEntry.TABLE_NAME, null, cv);
+        mDatabase.insert(Contract.EditEntry.TABLE_NAME, null, cv);
         mAdapter.swapCursor(getAllItems());
     }
 
     private Cursor getAllItems(){
         return mDatabase.query(
-                EditContract.EditEntry.TABLE_NAME,
+                Contract.EditEntry.TABLE_NAME,
                 null,
                 null,
                 null,
                 null,
                 null,
-                EditContract.EditEntry.COLUMN_TIMESTAMP + " DESC"
+                Contract.EditEntry.COLUMN_TIMESTAMP + " DESC"
         );
     }
 }

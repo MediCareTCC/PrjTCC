@@ -3,9 +3,9 @@ package com.example.prjtcc;
 import android.provider.BaseColumns;
 
 
-public class EditContract {
+public class Contract {
 
-    private EditContract(){}
+    private Contract(){}
 
     public static final class EditEntry implements BaseColumns {
         public static final String TABLE_NAME = "editList";
