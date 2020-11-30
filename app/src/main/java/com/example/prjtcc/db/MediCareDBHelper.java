@@ -62,9 +62,6 @@ public class MediCareDBHelper extends SQLiteOpenHelper {
         if(result==-1) return false;
         else
             return true;
-
-        SQLiteDatabase db = this.getReadableDatabase();
-        return true;
     }
 
     public Boolean checkusernamepassword(String cpf, String senha){
