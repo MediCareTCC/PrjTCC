@@ -33,6 +33,7 @@ dependencies {
     implementation files('libs\\commons-email-1.5.jar')
     implementation files('libs\\mail-1.4.7.jar')
     implementation 'com.google.firebase:firebase-database:19.5.1'
+    implementation files('libs\\activation.jar')
     testImplementation 'junit:junit:4.13.1'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'

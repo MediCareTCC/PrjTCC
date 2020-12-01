@@ -22,12 +22,16 @@ import org.apache.commons.mail.DefaultAuthenticator;
 import org.apache.commons.mail.SimpleEmail;
 import com.example.prjtcc.db.MediCareContract.*;
 
+
 public class EsqueceuSenha extends AppCompatActivity {
+
 
     private EditText email;
     private SQLiteDatabase db;
     private Button mudarSenha;
     private Toast toastConfirm;
+
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -39,9 +43,12 @@ public class EsqueceuSenha extends AppCompatActivity {
         final MediCareDBHelper dbHelper = new MediCareDBHelper(this);
         //db = dbHelper.getWritableDatabase();
 
+        
+
         mudarSenha.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 String emailString = email.getText().toString();
 
                 boolean check =  dbHelper.checkemail(emailString);

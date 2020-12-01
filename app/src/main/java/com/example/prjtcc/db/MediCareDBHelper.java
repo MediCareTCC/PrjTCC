@@ -57,16 +57,22 @@ public class MediCareDBHelper extends SQLiteOpenHelper {
         SQLiteDatabase MyDB = this.getWritableDatabase();
         ContentValues contentValues= new ContentValues();
         contentValues.put("senha", senha);
-        long result = MyDB.update("usuario", contentValues, "email = ?", new String[] {email});
+        long result = MyDB.updateWithOnConflict("usuario", contentValues, "email = ?", new String[] {email}, 3);
 
-        if(result==-1) return false;
+        if(result==0) return false;
         else
             return true;
+        /*
+        SQLiteDatabase database = this.getWritableDatabase();
+        database.execSQL("UPDATE " + MediCareEntry.TABLE_NAME + " SET " + MediCareEntry.COLUMN_SENHA + " = " +
+                senha + " WHERE " + MediCareEntry.COLUMN_EMAIL + " = " + email);
+        return true;*/
     }
+
 
     public Boolean checkusernamepassword(String cpf, String senha){
         SQLiteDatabase MyDB = this.getWritableDatabase();
-        Cursor cursor = MyDB.rawQuery("Select * from usuario where cpf = ? and senha = ?", new String[] {cpf,senha});
+        Cursor cursor = MyDB.rawQuery("Select * from usuario where cpf = ? and senha = ?", new String[] {cpf ,senha});
         if(cursor.getCount()>0)
             return true;
         else

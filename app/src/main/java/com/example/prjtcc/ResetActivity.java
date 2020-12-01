@@ -52,7 +52,7 @@ public class ResetActivity extends AppCompatActivity {
                 String senhaRepetida = repetirNovaSenha.getText().toString();
 
                 if(senha.equals(senhaRepetida)) {
-                    boolean checkpasswordupdate = dbHelper.updatepassword(senha, emailString);
+                    boolean checkpasswordupdate = dbHelper.updatepassword(emailString, senha);
 
                     if(checkpasswordupdate == true) {
                         Intent intent = new Intent(getApplicationContext(), Login.class);

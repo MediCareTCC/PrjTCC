@@ -8,10 +8,8 @@
         android:id="@+id/textView_email_reset"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="20dp"/>
-
-
-
+        android:textSize="20dp"
+        android:textColor="#258BE9"/>
     <ImageButton
         android:id="@+id/voltar"
         android:layout_width="wrap_content"
